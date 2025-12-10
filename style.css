@@ -1,0 +1,281 @@
+html,
+body {
+ height: 100%;
+ margin: 0;
+ padding: 0;
+ /* ★追加: start.css に合わせてフォントファミリーを指定 */
+ font-family: 'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+button.choice {
+ width: 100%;
+ /* 幅を画面いっぱいに広げる */
+ min-width: 200px;
+ /* 最小幅を大きくする */
+ height: 30px;
+ /* 高さを広げる */
+ white-space: normal;
+ /* テキストを折り返す */
+ word-wrap: break-word;
+ /* テキストがボタン内で折り返されるように */
+ font-weight: bold;
+ /* 文字を太くする */
+ font-size: 18px;
+ /* フォントサイズを大きくする */
+ color: white;
+ background-color: #6a4caf;
+ /* 背景色を変更（緑系） */
+ border: none;
+ /* 枠線をなしにする */
+ border-radius: 10px;
+ /* 角を丸くする */
+ margin: 10px;
+ /* 間隔を広げる */
+ transition: background-color 0.3s ease;
+ /* 色変更にアニメーションを追加 */
+}
+
+button.choice:hover {
+ background-color: #45a049;
+ /* ホバー時に色を少し濃くする */
+}
+
+#choices {
+ display: flex;
+ flex-direction: column;
+ /* ボタンを縦に並べる */
+ align-items: center;
+ /* ボタンを中央に配置 */
+}
+
+
+img {
+ padding-top: 10px;
+}
+
+#street-view {
+ height: 100%;
+ filter: invert(100%);
+}
+
+#floating-panel {
+ position: absolute;
+ top: 10px;
+ left: 5%;
+ z-index: 5;
+ background-color: #fff;
+ padding: 5px;
+ border: 1px solid #999;
+ text-align: center;
+ font-family: "Roboto", "sans-serif";
+ line-height: 30px;
+ padding-left: 10px;
+ width: 25%;
+ height: 70%;
+}
+
+#floating-panel {
+ margin-left: -100px;
+ height: 325px;
+}
+
+/* --- ★ここから結果画面のスタイルを大幅に変更 --- */
+
+#result-screen {
+    /* ★変更: 初期状態は非表示 */
+    display: none; 
+    
+    /* ★追加: 画面全体を覆うオーバーレイ設定 */
+    position: fixed; /* 画面全体に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* ★追加: Flexbox で中身 (結果ボックス) を中央揃え */
+    /* (JS側で display: flex; に変更されてこれが有効になる) */
+    align-items: center;
+    justify-content: center;
+    
+    /* ★追加: 背景 (start.html の背景に似せる) */
+    background: linear-gradient(135deg, #e0f2f1, #f0f2f5);
+    
+    z-index: 10;
+    box-sizing: border-box; 
+}
+
+/* ★追加: 結果表示用の実際のボックス (start.css の #welcome-screen に似せる) */
+#result-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    padding: 3rem 3.5rem;
+    text-align: center;
+    max-width: 700px;
+    width: 90%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ★変更: h1 のセレクタとスタイルを start.css 準拠に変更 */
+#result-box h1 {
+    margin-top: 0; 
+    margin-bottom: 1.5rem; 
+    font-size: 2.4rem; 
+    color: #2c3e50; 
+    font-weight: 700; 
+}
+
+/* ★変更: p のセレクタとスタイルを start.css 準拠に変更 */
+#result-box p {
+    margin-bottom: 1.2rem; 
+    font-size: 1.1rem; 
+    color: #34495e; 
+}
+
+/* ★変更: #final-score のスタイルを変更 */
+#final-score {
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    color: #28a745; /* スタートボタンの緑色に */
+    margin-bottom: 1.5rem; 
+}
+
+/* ★変更: button のセレクタとスタイルを start.css 準拠に変更 */
+#result-box button {
+    display: inline-block; 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+    background-color: #28a745; /* スタートボタンの緑色 */
+    padding: 0.9rem 2.8rem; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2); 
+    border: none; 
+    cursor: pointer; 
+    margin-top: 1.5rem; 
+}
+
+/* ★変更: button:hover のセレクタとスタイルを start.css 準拠に変更 */
+#result-box button:hover {
+    background-color: #218838; /* スタートボタンの緑色ホバー */
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3); 
+}
+
+/* --- ★結果画面のスタイル変更ここまで --- */
+
+
+#hint-button {
+    width: 80%; /* 選択肢より少し狭く */
+    min-width: 180px;
+    height: 60px;
+    font-weight: bold;
+    font-size: 16px; /* 少し小さく */
+    color: white;
+    background-color: #2aba49; /* 青系の色 */
+    border: none;
+    border-radius: 10px;
+    margin: 50px auto 10px auto; /* 上下のマージン */
+    display: block; /* 中央揃えのために block に */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#hint-button:hover {
+    background-color: #32a465;
+}
+
+/* モーダル（ダイアログ）のスタイル */
+.hidden {
+    display: none;
+}
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+    z-index: 10;
+}
+
+#modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px; /* 最大幅 */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 11;
+    overflow: hidden; /* 角丸を内部要素にも適用させるため */
+}
+
+#modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    /* 参考画像のようなアイコンとタイトルの横並び */
+    display: flex;
+    align-items: center;
+}
+
+/* 参考画像のようなアイコンをCSSで簡易的に作成 */
+#modal-header::before {
+     content: 'i'; /* ヒントの 'i' */
+     display: inline-block;
+     width: 28px;
+     height: 28px;
+     line-height: 28px;
+     text-align: center;
+     font-weight: bold;
+     font-style: italic;
+     color: white;
+     background-color: #007bff; /* ヒントボタンと同じ青 */
+     border-radius: 50%;
+     margin-right: 12px;
+     font-family: 'Georgia', serif;
+}
+
+
+#modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+#modal-content {
+    padding: 20px;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+#modal-footer {
+    padding: 16px 20px;
+    text-align: right; /* ボタンを右寄せ */
+    background-color: #f9f9f9; /* フッター領域を少し色付け */
+    border-top: 1px solid #eee;
+}
+
+#modal-close-btn {
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* ヒントボタンと同じ青 */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#modal-close-btn:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,122 @@
+/* ページ全体のスタイル */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* 読み込んだフォントを適用 */
+    font-family: 'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    
+    /* ★デザイン変更: 背景を青系のグラデーションに変更 */
+    background: linear-gradient(135deg, #e6f7ff, #f0f4f5); /* 淡い青から薄いグレーへ */
+    
+    display: flex; /* Flexbox を使用 */
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: center; /* 水平方向の中央揃え */
+}
+
+/* ウェルカム画面のコンテナ (基本レイアウトは start.css と共通) */
+#welcome-screen {
+    background-color: rgba(255, 255, 255, 0.9); /* 少し透明感のある白 */
+    backdrop-filter: blur(10px); /* 背景をぼかす */
+    border-radius: 16px; /* 角を丸くする */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* 影 */
+    padding: 3rem 3.5rem;
+    text-align: center; /* テキストを中央揃え */
+    max-width: 700px; 
+    width: 90%; 
+    box-sizing: border-box; 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+/* メインタイトル (基本レイアウトは start.css と共通) */
+#welcome-screen h1 {
+    font-size: 2.4rem; 
+    color: #2c3e50; /* 落ち着いた濃い色 */
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: 700; 
+}
+
+/* 説明文 (基本レイアウトは start.css と共通) */
+#welcome-screen p {
+    font-size: 1.1rem; 
+    color: #34495e; 
+    line-height: 1.7; 
+    margin-bottom: 1.2rem; 
+}
+
+/* 最後の段落のマージン (ボタンとの間隔) */
+#welcome-screen p:last-of-type {
+    margin-bottom: 2.5rem; /* ★少し調整 */
+}
+
+
+/* --- ★ここからが新しいスタイル (7つのボタン用) --- */
+
+/* 7つのボタンを囲むコンテナ */
+#region-selection {
+    display: flex; /* Flexbox を使用 */
+    flex-wrap: wrap; /* ボタンが多ければ折り返す */
+    justify-content: center; /* ボタンを中央揃え */
+    gap: 15px; /* ボタン同士の隙間 */
+}
+
+/* 地方選択ボタン (共通スタイル) */
+.region-button {
+    display: inline-block; 
+    font-size: 1.0rem; /* ★ボタンが多いため少し小さく調整 */
+    font-weight: 700; 
+    color: #ffffff; /* 白い文字 */
+    
+    /* ★デザイン変更: ボタンの色を青系に変更 */
+    background-color: #28a745; 
+    
+    padding: 0.8rem 1.5rem; /* ★ボタンのサイズを調整 */
+    border-radius: 10px; /* ★角丸の半径を調整 */
+    text-decoration: none; /* 下線を削除 */
+    transition: all 0.3s ease; /* ホバーエフェクト */
+    
+    /* ★デザイン変更: 影の色を青系に変更 */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+    
+    flex-grow: 1; /* ボタンがスペースを均等に埋める */
+    flex-basis: 180px; /* ボタンの最小幅 */
+}
+
+/* ボタンのホバー時 */
+.region-button:hover {
+    /* ★デザイン変更: ホバー時の色を濃い青に */
+    background-color: #218838; 
+    transform: translateY(-3px); /* 少し浮き上がる */
+    /* ★デザイン変更: 影を青系に */
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); 
+}
+
+/* ボタンのアクティブ時（クリック時） */
+.region-button:active {
+    transform: translateY(0); /* 元に戻す */
+    /* ★デザイン変更: 影を青系に */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); 
+}
+
+/* --- ★追加: モード切替ボタン (start.html用) --- */
+.mode-switch-button {
+    display: inline-block;
+    font-size: 0.95rem; /* メインボタンより少し小さく */
+    font-weight: 600;
+    color: #28a745; /* ★テーマカラー（緑） */
+    background-color: #ffffff; /* 白背景 */
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px; /* 丸い形 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #28a745; /* ★テーマカラーの枠線 */
+    margin-top: 1.5rem; /* メインボタンとの間隔 */
+}
+
+.mode-switch-button:hover {
+    background-color: #28a745; /* ★テーマカラー（緑） */
+    color: #ffffff; /* 白文字 */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2); /* ★影（緑系） */
+}

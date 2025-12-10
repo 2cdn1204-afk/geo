@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>47都道府県ジオゲッサー</title>
+    <link rel="stylesheet" href="strat_j.css" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="welcome-screen">
+        <h1>🗾ようこそ！47都道府県ジオゲッサーへ</h1>
+        <p>ストリートビューを見て、それがどこなのかを当ててください。</p>
+        <p>ヒントボタンも活用してみましょう。</p>
+        <p>高スコアを目指して頑張ってください！</p>
+        
+        <!-- index.html へ移動するリンクボタン -->
+        <div id="region-selection">
+            <!-- 
+              各ボタンは index.html へのリンクになります。
+              ?region=... の部分（URLパラメータ）で、どの地方が選ばれたかを
+              index.html (と script.js) に伝えます。
+            -->
+            <a href="Hokkaido.html" class="region-button">北海道・東北地方</a>
+            
+            <a href="Kanto.html" class="region-button">関東地方</a>
+            <a href="tyuubu.html" class="region-button">中部地方</a>
+            <a href="kinki.html" class="region-button">近畿地方</a>
+            <a href="sikoku.html" class="region-button">中国・四国地方</a>
+            <a href="okinawa.html" class="region-button">九州・沖縄地方</a>
+
+            <a href="start.html" class="mode-switch-button">
+            🌍世界遺産ジオゲッサーへ
+        </a>
+        </div>
+    </div>
+</body>
+</html>
