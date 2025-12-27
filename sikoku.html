@@ -2,11 +2,12 @@
 <html>
 
 <head>
+<meta charset="UTF-8">
  <title>中国・四国GeoGuessr</title>
  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
  <link rel="stylesheet" href="style.css" />
 
- </style>
+
  <script src="sikoku.js">
  </script>
 </head>
@@ -33,6 +34,7 @@
         <p id="final-score"></p>
         <p id="final-round"></p>
         <button onclick="location.reload();">再スタート</button>
+        <button class="home-button" onclick="location.href='strart_j.html'">タイトルに戻る</button>
     </div>
  </div>
 
@@ -52,7 +54,6 @@
  </div>
 
 
- <script src="api.js">
- </script>
+<script type="module" src="/api.js"></script>
 </body>
 </html>
