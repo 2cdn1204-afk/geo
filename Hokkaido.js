@@ -107,6 +107,7 @@ function initialize() {
  zoom: 1,
  }
  );
+setChoices();
 }
 
 // 結果画面の表示
