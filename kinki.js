@@ -178,4 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+window.initialize = initialize;
+window.setChoices = setChoices;
 // --- ★ここまでヒントモーダル用のコードを追加

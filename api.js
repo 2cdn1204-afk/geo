@@ -11,4 +11,4 @@ function loadScript(apikey) {
 loadScript(google_key);
 
 // ゲームスタート時に4択をセット
-setChoices();
+// setChoices();
